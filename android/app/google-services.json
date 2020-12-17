@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "159725426522",
+    "project_id": "pushing-b95a1",
+    "storage_bucket": "pushing-b95a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159725426522:android:5cfad02bb9d7f9a1e70563",
+        "android_client_info": {
+          "package_name": "com.example.pushing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "159725426522-ijfk5ha532r4vh61l5rkosdcnokmaecr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pushing",
+            "certificate_hash": "f54de41379fb4567ee6ba22a1983221de43b07ef"
+          }
+        },
+        {
+          "client_id": "159725426522-s4llf5spar9s77jdlvmd9pdena4plc8t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ4UaYHk4C9fod4b2hnKpefpGwHpEFRoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "159725426522-s4llf5spar9s77jdlvmd9pdena4plc8t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
