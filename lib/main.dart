@@ -11,11 +11,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String msgRecibido = "(Vacío)";
+  int counter = 0;
+
   @override
   void initState() {
     super.initState();
     final pushProvider = new PushNotificationProvider();
     pushProvider.initNotifications();
+    pushProvider.msg.listen((arg) {
+      print('Argumentos de la Notificacion');
+      print(arg);
+      msgRecibido = arg;
+      counter++;
+      setState(() {});
+    });
   }
 
   @override
@@ -28,8 +38,17 @@ class _MyAppState extends State<MyApp> {
           title: Text('Pushing'),
         ),
         body: Center(
-          child: Container(
-            child: Text('Hello World'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Contenido del Mensaje Recibido'),
+              Text(msgRecibido),
+              SizedBox(
+                height: 16,
+              ),
+              Text('Numero de Mensajes Recibidos:'),
+              Text(counter.toString()),
+            ],
           ),
         ),
       ),

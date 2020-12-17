@@ -1,7 +1,11 @@
+import 'dart:async';
+import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 class PushNotificationProvider {
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  final _msgSreamController = StreamController<String>.broadcast();
+  Stream<String> get msg => _msgSreamController.stream;
   initNotifications() {
     _firebaseMessaging.requestNotificationPermissions();
     _firebaseMessaging.getToken().then((token) {
@@ -14,15 +18,30 @@ class PushNotificationProvider {
       onMessage: (info) {
         print('==== onMessage ====');
         print(info);
+        String arg = 'no-data';
+        if (Platform.isAndroid) {
+          arg = info['data']['mensaje'] ?? ['no-data'];
+        }
+        _msgSreamController.sink.add(arg);
       }, //Fires when the app is open
       onLaunch: (info) {
         print('==== onLaunch ====');
         print(info);
-      }, //Fires when the app is open
+        String arg = 'no-data';
+        if (Platform.isAndroid) {
+          arg = info['data']['mensaje'] ?? ['no-data'];
+        }
+        _msgSreamController.sink.add(arg);
+      }, //Fires when the app is launched
       onResume: (info) {
         print('==== onResume ====');
         print(info);
-      }, //Fires when the app is open
+        String arg = 'no-data';
+        if (Platform.isAndroid) {
+          arg = info['data']['mensaje'] ?? ['no-data'];
+        }
+        _msgSreamController.sink.add(arg);
+      }, //Fires when the app is running on background
     );
   }
 }
